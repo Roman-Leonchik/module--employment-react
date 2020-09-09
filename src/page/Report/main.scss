@@ -1,0 +1,24 @@
+.report--wrapp {
+  .modul--head {
+    .item:nth-child(1) {
+      width: 25%;
+    }
+  }
+}
+.report--wrapp {
+  .modul--head {
+    .item:nth-child(2) {
+      width: 20%;
+    }
+  }
+}
+.departament--title {
+  font-family: OpenSans, sans-serif;
+  font-weight: 600;
+  color: #2067b0;
+  font-size: 16px;
+  line-height: 24px;
+  border-bottom: 3px solid #2067b0;
+  margin-top: 25px;
+  padding: 0 0 9px 20px;
+}

@@ -1,0 +1,35 @@
+.user {
+  &Time--wrapp {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid #d2dce4;
+    padding: 9px 20px 9px 20px;
+    .buttonTime {
+      pointer-events: none;
+      &.active {
+        pointer-events: auto;
+        border-bottom: 1px dashed #535c69;
+      }
+    }
+    a,
+    button {
+      font-weight: 400;
+      font-size: 14px;
+      text-decoration: none;
+      color: #555e6c;
+      cursor: pointer;
+      background: inherit;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &-name {
+    width: 25%;
+  }
+  &-time {
+    width: 20%;
+  }
+}
