@@ -8,7 +8,7 @@ const PopupTimeItemList = props => {
         for (const key of Object.keys(userTasks)) {
             var nameTasks = props.arrayModuleReport.TASKS[key].TITLE,
                 idTasks = props.arrayModuleReport.TASKS[key].ID,
-                linkTask = 'https://dev-bitrix.by/company/personal/user/'+props.popapIdUser+'/tasks/task/view/'+key+'/',
+                linkTask = props.pageDomain +'/company/personal/user/'+props.popapIdUser+'/tasks/task/view/'+key+'/',
                 timestamp = userTasks[idTasks],
                 hours = Math.floor(timestamp / 60 / 60),
                 minutes = Math.floor(timestamp / 60) - (hours * 60),

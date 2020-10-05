@@ -15,7 +15,7 @@ const PopupTime = props => {
                         <div className="item">Задача</div>
                         <div className="item">Время</div>
                     </div>
-                    <PopupTimeItemList  arrayModuleReport={props.arrayModuleReport} popapIdUser={props.popapIdUser}/>
+                    <PopupTimeItemList  pageDomain={props.pageDomain} arrayModuleReport={props.arrayModuleReport} popapIdUser={props.popapIdUser}/>
                 </div>
             </div>
         </div>

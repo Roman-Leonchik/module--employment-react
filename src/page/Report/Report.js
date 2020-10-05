@@ -10,7 +10,7 @@ const Report = props => {
                 <div className="item">Время</div>
                 <div className="item">Задача</div>
             </div>
-            <ReportTimeItemList arrayModuleReport={props.arrayModuleReport}  clickPopap={props.clickPopap}/>
+            <ReportTimeItemList arrayModuleReport={props.arrayModuleReport}  clickPopap={props.clickPopap} pageDomain={props.pageDomain}/>
         </div>
     );
 }

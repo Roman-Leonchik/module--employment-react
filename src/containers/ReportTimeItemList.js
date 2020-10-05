@@ -16,7 +16,7 @@ const ReportTimeItemList = props => {
                         clickNameUser = new Function('if (BX.IM) { BXIM.openMessenger('+props.arrayModuleReport.USERS[keyItem].INFO.ID+'); return false; } else { window.open(\'\', \'\', \'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top=\'+Math.floor((screen.height - 550)/2-14)+\',left=\'+Math.floor((screen.width - 700)/2-5)); return false; }');
                     if(props.arrayModuleReport.USERS[keyItem].IS_TRACKED !== 0 ) {
                         var trackedWork = props.arrayModuleReport.TASKS[props.arrayModuleReport.USERS[keyItem].IS_TRACKED].TITLE,
-                            trackedLinkWork = 'https://dev-bitrix.by/company/personal/user/'+props.arrayModuleReport.USERS[keyItem].INFO.ID+'/tasks/task/view/'+props.arrayModuleReport.USERS[keyItem].IS_TRACKED+'/';
+                            trackedLinkWork = props.pageDomain + '/company/personal/user/'+props.arrayModuleReport.USERS[keyItem].INFO.ID+'/tasks/task/view/'+props.arrayModuleReport.USERS[keyItem].IS_TRACKED+'/';
                     } else {
                         trackedWork = null;
                         trackedLinkWork = null;

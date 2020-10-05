@@ -4,6 +4,7 @@ import TabsHeader from "./components/TabsHeader/TabsHeader";
 import { Report, Schedule } from './page/index';
 import PopupTime from "./components/PopupTime/PopupTime";
 import axios from "axios";
+import InstallationPage from './json/InstallationPage';
 
 class App extends Component {
     state = {
@@ -12,12 +13,14 @@ class App extends Component {
         popapActive: false,
         popapIdUser: null,
         date: new Date().toJSON().slice(0,10).replace(/-/g,'.'),
+        pageLink: InstallationPage.install.pagelink,
+        pageDomain: InstallationPage.install.domain,
     };
 
     //Array plugin
     async componentDidMount () {
         var dateArray = this.state.date.split(/\./)[2]+'.'+this.state.date.split(/\./)[1]+'.'+this.state.date.split(/\./)[0];
-        axios.get('https://dev-bitrix.by/pub/user_tracking/?date='+dateArray+'&secretKey=romchikreact').then(response =>  this.setState({arrayModuleReport: response.data}))
+        axios.get(this.state.pageLink+dateArray).then(response =>  this.setState({arrayModuleReport: response.data}))
     }
 
     //Event plugin
@@ -45,12 +48,12 @@ class App extends Component {
     changeDate = event => {
         const valueDate = event.target.value.replace(/-/g,'.'),
               dateArray = valueDate.split(/\./)[2]+'.'+valueDate.split(/\./)[1]+'.'+valueDate.split(/\./)[0];
-        axios.get('https://dev-bitrix.by/pub/user_tracking/?date='+dateArray+'&secretKey=romchikreact').then(response =>  this.setState({arrayModuleReport: response.data}))
+        axios.get(this.state.pageLink+dateArray).then(response =>  this.setState({arrayModuleReport: response.data}))
         this.setState({date: dateArray});
     };
 
     render(){
-        const {idActiveButton, arrayModuleReport, popapActive, popapIdUser} = this.state;
+        const {idActiveButton, arrayModuleReport, popapActive, popapIdUser, pageDomain} = this.state;
         return (
             <div className="App">
                 <TabsHeader
@@ -61,7 +64,7 @@ class App extends Component {
                 <Route
                     exact path={["/","/report",]}
                     render={(props) => (
-                        <Report {...props} arrayModuleReport={arrayModuleReport} clickPopap={this.popapVisible}/>
+                        <Report {...props} arrayModuleReport={arrayModuleReport} clickPopap={this.popapVisible} pageDomain={pageDomain}/>
                     )}
                 />
                 <Route
@@ -76,6 +79,7 @@ class App extends Component {
                             popapHide={this.popapHide}
                             arrayModuleReport={arrayModuleReport}
                             popapIdUser={popapIdUser}
+                            pageDomain={pageDomain}
                         />
                 }
             </div>
