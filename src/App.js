@@ -4,7 +4,6 @@ import TabsHeader from "./components/TabsHeader/TabsHeader";
 import { Report, Schedule } from './page/index';
 import PopupTime from "./components/PopupTime/PopupTime";
 import axios from "axios";
-import InstallationPage from './json/InstallationPage';
 
 class App extends Component {
     state = {
@@ -13,14 +12,14 @@ class App extends Component {
         popapActive: false,
         popapIdUser: null,
         date: new Date().toJSON().slice(0,10).replace(/-/g,'.'),
-        pageLink: InstallationPage.install.pagelink,
-        pageDomain: InstallationPage.install.domain,
+        pageLink: this.props.installation.pagelink,
+        pageDomain: this.props.installation.domain,
     };
 
     //Array plugin
     async componentDidMount () {
         var dateArray = this.state.date.split(/\./)[2]+'.'+this.state.date.split(/\./)[1]+'.'+this.state.date.split(/\./)[0];
-        axios.get(this.state.pageLink+dateArray).then(response =>  this.setState({arrayModuleReport: response.data}))
+        axios.get(this.state.pageLink+dateArray).then(response =>  this.setState({arrayModuleReport: response.data}));
     }
 
     //Event plugin
